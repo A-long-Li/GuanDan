@@ -19,4 +19,10 @@ public class TeamService {
     public Team getTeam(int id){
         return tm.GetTeam(id);
     }
+    public int UpdateTeam(Team t){
+        return tm.Update(t);
+    }
+    public int addTeam(Team t){
+        return tm.addTeam(t);
+    }
 }

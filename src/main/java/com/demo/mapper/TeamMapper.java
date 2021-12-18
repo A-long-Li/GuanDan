@@ -25,6 +25,10 @@ public interface TeamMapper {
     Team GetTeam(int id);
     //查询rank
     List<Team> GetRank();
+    //修改
+    int Update(Team t);
 
+    //增加用户
+    int addTeam(Team t);
 
 }
