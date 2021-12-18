@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RenderController {
 
-    @GetMapping(value = {"/idx"})
+    @GetMapping(value = {"/","/idx"})
     public String getidx(){
         return "luru";
     }
