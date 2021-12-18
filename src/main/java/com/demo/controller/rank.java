@@ -12,20 +12,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tb")
+@RequestMapping("/race")
 public class rank {
 
     @Autowired
     private TeamService ts;
 
-    @RequestMapping("getTeam/{id}")
+    @RequestMapping("get_score/{id}")
     @ResponseBody
     public String GetTeam(@PathVariable int id){
         return ts.getTeam(id).toString();
     }
-    @RequestMapping("GR")
+
+    //排名信息
+    @RequestMapping("/game_rank")
     @ResponseBody
-    public String getRank(){
-        return ts.GetRank().toString();
+    public List<Team> getRank(){
+        return ts.GetRank();
     }
 }

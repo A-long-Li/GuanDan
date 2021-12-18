@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+</head>
+<body>
+        
+        <div class="containner" id="target">
+            
+        </div>
+        
+        
+        <div class="scoreboard_containner">
+            
+            <div class="top-10">
+                <h2 class="title">当前排名</h2>
+                <ul>
+                    <li><a>队伍01</a></li>
+                    <li><a>队伍02</a></li>
+                    <li><a>队伍03</a></li>
+                    <li><a>队伍04</a></li>
+                    <li><a>队伍05</a></li>
+                    <li><a>队伍06</a></li>
+                    <li><a>队伍07</a></li>
+                    <li><a>队伍08</a></li>
+                    <li><a>队伍09</a></li>
+                    <li><a>队伍10</a></li>
+                    
+                </ul>
+                <div id="rank-more">
+                    <span class="span-h7"><a href="#">查看更多</a></span>
+                </div>
+                <div><button id="do"> 生成</button></div>
+    
+            </div>
+        </div>
+    <script src="jquery.min.js"></script>
+    <script>
+        $("#do").click(function (){
+            var target = $('#target');
+            target.append('<div class = "col-sm-3" style="width:25%;background-color: rgb(161, 34, 34);height:25%;"><span>Haskell</span></div>')
+        });
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@
         <result column="idx" jdbcType="INTEGER" property="idx"/>
     </resultMap>
     <select id="GetRank" resultType="com.demo.pojo.Team">
-        select * from team  order by score desc
+        select * from team order by score desc
     </select>
     <select id="GetTeam" resultType="com.demo.pojo.Team">
         select * from team where id = #{id}
