@@ -11,4 +11,8 @@ spring:
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
-
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.demo.pojo

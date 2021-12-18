@@ -1,7 +1,10 @@
 package com.demo.pojo;
 
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
+
+@Alias("team")
 @Data
 public class Team {
     //团队id
