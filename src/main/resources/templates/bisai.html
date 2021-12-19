@@ -35,15 +35,31 @@
                 <div id="rank-more">
                     <span class="span-h7"><a href="#">查看更多</a></span>
                 </div>
-                <div><button id="do"> 生成</button></div>
     
             </div>
         </div>
     <script src="jquery.min.js"></script>
     <script>
-        $("#do").click(function (){
+        function generation(data){
             var target = $('#target');
-            target.append('<div class = "col-sm-3" style="width:25%;background-color: rgb(161, 34, 34);height:25%;"><span>Haskell</span></div>')
+            const list = JSON.parse(data);
+            for (const x in list) {
+                target.append('<div class = "col-sm-3 newNode"><div>team.player1</div><div>team.player2</div></div>')
+            }
+
+
+        }
+
+        $.ajax({
+            url: "/race/game_rank",
+            async: false,
+            type: "GET",
+            success:function (data) {
+                generation(data);
+            },
+            error:function () {
+                alert('输入的信息有误');
+            }
         });
     </script>
 </body>
