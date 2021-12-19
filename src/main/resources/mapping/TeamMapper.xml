@@ -31,5 +31,9 @@
     <update id="CountScore" parameterType="com.demo.pojo.Team">
         update team set score = #{score} where id = #{id}
     </update>
+<!--    删除队伍-->
+    <delete id="DeleteTeam" parameterType="int">
+        delete from team where id = #{id}
+    </delete>
 
 </mapper>

@@ -31,5 +31,7 @@ public interface TeamMapper {
     //结算分数
     int CountScore(Team t);
 
+    //删除队伍
+    int DeleteTeam(int id);
 
 }
