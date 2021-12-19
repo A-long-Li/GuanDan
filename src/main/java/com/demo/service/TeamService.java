@@ -13,16 +13,21 @@ public class TeamService {
     @Autowired
     TeamMapper tm;
 
-    public List<Team> GetRank(){
+    public List<Team> Get_Rank(){
         return tm.GetRank();
     }
-    public Team getTeam(int id){
+
+    public Team Get_Team(int id){
         return tm.GetTeam(id);
     }
-    public int UpdateTeam(Team t){
+
+    public int Update_Team(Team t){
         return tm.Update(t);
     }
-    public int addTeam(Team t){
-        return tm.addTeam(t);
+
+    public int Add_Team(Team t){
+        return tm.AddTeam(t);
     }
+
+    public int Count_Score(Team t){return tm.CountScore(t);}
 }

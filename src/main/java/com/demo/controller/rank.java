@@ -21,13 +21,13 @@ public class rank {
     @RequestMapping("get_score/{id}")
     @ResponseBody
     public String GetTeam(@PathVariable int id){
-        return ts.getTeam(id).toString();
+        return ts.Get_Team(id).toString();
     }
 
     //排名信息
     @RequestMapping("/game_rank")
     @ResponseBody
-    public List<Team> getRank(){
-        return ts.GetRank();
+    public List<Team> GetRank(){
+        return ts.Get_Rank();
     }
 }

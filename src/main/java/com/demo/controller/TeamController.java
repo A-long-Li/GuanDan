@@ -17,11 +17,16 @@ public class TeamController {
     @PostMapping("/change")
     @ResponseBody
     public int updateTeam(Team t){
-        return ts.UpdateTeam(t);
+        return ts.Update_Team(t);
     }
+
     @PostMapping("/add")
     @ResponseBody
     public int addTeam(Team t){
-        return ts.addTeam(t);
+        return ts.Add_Team(t);
     }
+
+    @PostMapping("/count")
+    @ResponseBody
+    public int countScore(Team t){return  ts.Count_Score(t);}
 }

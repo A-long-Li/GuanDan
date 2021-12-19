@@ -2,9 +2,6 @@ package com.demo.mapper;
 
 import com.demo.pojo.Team;
 import org.apache.ibatis.annotations.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
@@ -29,6 +26,10 @@ public interface TeamMapper {
     int Update(Team t);
 
     //增加用户
-    int addTeam(Team t);
+    int AddTeam(Team t);
+
+    //结算分数
+    int CountScore(Team t);
+
 
 }

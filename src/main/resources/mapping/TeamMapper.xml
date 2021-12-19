@@ -23,9 +23,13 @@
         update team set player1 = #{player1},player2 = #{player2} where id = #{id};
     </update>
 <!--    增加队伍-->
-    <insert id="addTeam" parameterType="com.demo.pojo.Team">
+    <insert id="AddTeam" parameterType="com.demo.pojo.Team">
         insert into team (player1,player2)
         values (#{player1},#{player2});
     </insert>
+<!--    每一局结束开始计算分数-->
+    <update id="CountScore" parameterType="com.demo.pojo.Team">
+        update team set score = #{score} where id = #{id}
+    </update>
 
 </mapper>
