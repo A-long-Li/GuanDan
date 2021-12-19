@@ -30,4 +30,8 @@ public class TeamService {
     }
 
     public int Count_Score(Team t){return tm.CountScore(t);}
+
+    public int Delete_Team(int id){
+        return tm.DeleteTeam(id);
+    }
 }

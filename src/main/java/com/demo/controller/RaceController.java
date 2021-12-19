@@ -1,6 +1,5 @@
 package com.demo.controller;
 
-import com.demo.mapper.TeamMapper;
 import com.demo.pojo.Team;
 import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/race")
-public class rank {
-
+public class RaceController {
     @Autowired
     private TeamService ts;
 
