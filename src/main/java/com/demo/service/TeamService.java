@@ -34,4 +34,8 @@ public class TeamService {
     public int Delete_Team(int id){
         return tm.DeleteTeam(id);
     }
+
+
+    public List<Team> Get_Order(){return tm.GetOrder();}
+
 }
