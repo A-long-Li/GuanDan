@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -27,5 +30,21 @@ public class RaceController {
     @ResponseBody
     public List<Team> GetRank(){
         return ts.Get_Rank();
+    }
+
+    //随机打乱
+    @RequestMapping("get_shuffle")
+    @ResponseBody
+    public List<Team> GetShuffle(){
+        List<Team> t = ts.Get_Order();
+        Collections.shuffle(t);
+        return t;
+    }
+
+    //正常序列
+    @RequestMapping("get_order")
+    @ResponseBody
+    public List<Team> GetOrder(){
+        return ts.Get_Order();
     }
 }

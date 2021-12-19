@@ -34,4 +34,9 @@ public interface TeamMapper {
     //删除队伍
     int DeleteTeam(int id);
 
+    //获取正常序列
+    List<Team> GetOrder();
+
+
+
 }

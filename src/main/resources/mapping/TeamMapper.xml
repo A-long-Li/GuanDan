@@ -36,4 +36,9 @@
         delete from team where id = #{id}
     </delete>
 
+<!--    获取正常队列-->
+    <select id="GetOrder" parameterType="com.demo.pojo.Team">
+        select * from team
+    </select>
+
 </mapper>
