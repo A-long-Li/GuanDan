@@ -4,6 +4,7 @@ import com.demo.pojo.Team;
 import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -35,5 +36,13 @@ public class TeamController {
     @ResponseBody
     public int deleteTeam(int id){
         return ts.Delete_Team(id);
+    }
+
+    /*编辑角色详情*/
+    @GetMapping("/edit")
+    public String detail(Model model, Integer id) {
+        Team role = ts.Get_Team(id);
+        model.addAttribute("team", role);
+        return "userDetail";
     }
 }
