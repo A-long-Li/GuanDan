@@ -1,33 +1,32 @@
 package com.demo.controller;
 
-import com.demo.mapper.TeamMapper;
 import com.demo.pojo.Team;
 import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-
 @Controller
-@RequestMapping("/race")
-public class rank {
-
+@RequestMapping("/team")
+public class TeamController {
     @Autowired
     private TeamService ts;
 
-    @RequestMapping("get_score/{id}")
+    @PostMapping("/change")
     @ResponseBody
-    public String GetTeam(@PathVariable int id){
-        return ts.Get_Team(id).toString();
+    public int updateTeam(Team t){
+        return ts.Update_Team(t);
     }
 
-    //排名信息
-    @RequestMapping("/game_rank")
+    @PostMapping("/add")
     @ResponseBody
-    public List<Team> GetRank(){
-        return ts.Get_Rank();
+    public int addTeam(Team t){
+        return ts.Add_Team(t);
     }
+
+    @PostMapping("/count")
+    @ResponseBody
+    public int countScore(Team t){return  ts.Count_Score(t);}
 }

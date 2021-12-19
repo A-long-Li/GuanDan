@@ -10,11 +10,26 @@
         <result column="score" jdbcType="INTEGER" property="score"/>
         <result column="idx" jdbcType="INTEGER" property="idx"/>
     </resultMap>
+<!--    获取排名-->
     <select id="GetRank" resultType="com.demo.pojo.Team">
         select * from team order by score desc
     </select>
+<!--    按照id获取队伍-->
     <select id="GetTeam" resultType="com.demo.pojo.Team">
         select * from team where id = #{id}
     </select>
+<!--    根据id修改队伍 -->
+    <update id="UpdateTeam" parameterType="com.demo.pojo.Team">
+        update team set player1 = #{player1},player2 = #{player2} where id = #{id};
+    </update>
+<!--    增加队伍-->
+    <insert id="AddTeam" parameterType="com.demo.pojo.Team">
+        insert into team (player1,player2)
+        values (#{player1},#{player2});
+    </insert>
+<!--    每一局结束开始计算分数-->
+    <update id="CountScore" parameterType="com.demo.pojo.Team">
+        update team set score = #{score} where id = #{id}
+    </update>
 
 </mapper>
