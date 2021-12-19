@@ -19,7 +19,7 @@
         select * from team where id = #{id}
     </select>
 <!--    根据id修改队伍 -->
-    <update id="UpdateTeam" parameterType="com.demo.pojo.Team">
+    <update id="Update" parameterType="com.demo.pojo.Team">
         update team set player1 = #{player1},player2 = #{player2} where id = #{id};
     </update>
 <!--    增加队伍-->

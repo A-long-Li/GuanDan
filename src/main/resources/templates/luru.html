@@ -71,7 +71,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">用户信息</h4>
+                        <h4 class="modal-title">队伍信息</h4>
                     </div>
                     <div class="modal-body">
                         <div id="userOpenWindow">
@@ -142,7 +142,7 @@
                 formatter : function(value,
                                      row, index) {
                     var edit ='<a class="table-btn table-btn-info" href="javascript:void(0)" onclick="editUser('+row.id+')">编辑</a>';
-                    var del = '<a  class="table-btn table-btn-danger" href="javascript:void(0)" onclick="deleteUser('+row.id+')">删除</a>';
+                    var del = '<a class="table-btn table-btn-danger" href="javascript:void(0)" onclick="deleteUser('+row.id+')">删除</a>';
                     return edit  + del;
                 }
             }],
@@ -169,9 +169,30 @@
 
         function editUser(id) {
             $("#userOpenWindow").html("");
-            $("#userOpenWindow").load("/idx/edit?id="+id,function(){
-                $("#userDetailModal").modal("show");
+            $("#userOpenWindow").load("/idx/edit?id="+id,function(responseTxt,statusTxt,xhr){
+                if (statusTxt== "success" )
+                    $("#userDetailModal").modal("show");
+                if (statusTxt== "error" )
+                    alert( "Error: " +xhr.status+ ": " +xhr.statusText);
+
             })
+        }
+        function deleteUser(userId) {
+                //利用对话框返回的值 （true 或者 false）
+                if (confirm("确定删除该队吗？")) {
+                    $.ajax({
+                        url: "/idx/delete",
+                        async: true,
+                        data: {"id":userId},
+                        type: "GET",
+                        success:function () {
+                            $("#table").bootstrapTable("refresh");
+                        },
+                        error:function () {
+                            alert('某些错误发生了');
+                        }
+                    });
+                }
         }
     </script>
 </body>
