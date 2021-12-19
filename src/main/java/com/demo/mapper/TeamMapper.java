@@ -37,6 +37,9 @@ public interface TeamMapper {
     //获取正常序列
     List<Team> GetOrder();
 
+    //记录到打到哪一张 按照数字来区分
+    int CountIdx(int id,int idx);
+
 
 
 }
