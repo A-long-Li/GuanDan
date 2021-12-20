@@ -20,16 +20,6 @@
             <div class="top-10">
                 <h2 class="title">当前排名</h2>
                 <ul>
-                    <li><a>队伍01</a></li>
-                    <li><a>队伍02</a></li>
-                    <li><a>队伍03</a></li>
-                    <li><a>队伍04</a></li>
-                    <li><a>队伍05</a></li>
-                    <li><a>队伍06</a></li>
-                    <li><a>队伍07</a></li>
-                    <li><a>队伍08</a></li>
-                    <li><a>队伍09</a></li>
-                    <li><a>队伍10</a></li>
                     
                 </ul>
                 <div id="rank-more">
@@ -40,22 +30,65 @@
         </div>
     <script src="jquery.min.js"></script>
     <script>
-        function generation(data){
+        function generation(data1,data2){
             var target = $('#target');
-            const list = JSON.parse(data);
-            for (const x in list) {
-                target.append('<div class = "col-sm-3 newNode"><div>team.player1</div><div>team.player2</div></div>')
-            }
+            var ps = $("<div class = 'col-sm-3 newNode'></div>");
+            var numb1 = $("<div class = 'team1'></div>");
+            var play1 = $("<div class = 'play1'></div>");
+            var play2 = $("<div class = 'play2'></div>");
+            play1.text(data2.player1);
+            play2.text(data2.player2);
+            numb1.append(play1);
+            numb1.append(play2);
+            var hid1 = $("<div style='display:none;' id='id'> </div>");
+            hid1.text(data2.id);
+            numb1.append(hid1);
+            var numb2 = $("<div class = 'team2'></div>");
+            var play3 = $("<div class = 'play1'></div>");
+            var play4 = $("<div class = 'play2'></div>");
+            play3.text(data1.player1);
+            play4.text(data1.player2);
+            numb2.append(play3);
+            numb2.append(play4);
+            var hid2 = $("<div style='display:none;' id='id'> </div>");
+            hid2.text(data2.id);
+            numb2.append(hid2);
 
+            ps.append(numb1);
+            ps.append(numb2);
+            target.append(ps);
 
+        }
+        function rank(team1,team2)
+        {
+            var ul = $('div.top-10 ul');
+            var li1 = $("<li> </li>");
+            var a1 = $("<a></a>");
+            li1.text(team1.player1 + '  ' + team1.player2);
+            a1.text(team1.score);
+            li1.append(a1);
+            ul.append(li1);
+            var li2 = $("<li> </li>");
+            var a2 = $("<a></a>")
+            li2.text(team2.player1 + '  ' + team2.player2);
+            a2.text(team1.score);
+            li2.append(a2);
+
+            ul.append(li2);
         }
 
         $.ajax({
             url: "/race/game_rank",
             async: false,
             type: "GET",
-            success:function (data) {
-                generation(data);
+            dataType: 'json',
+            success:function (data){
+                for(var i=1; i<data.length; i += 2)
+                {
+                    generation(data[i-1],data[i]);
+                    rank(data[i-1],data[i]);
+                }
+
             },
             error:function () {
                 alert('输入的信息有误');

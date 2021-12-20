@@ -307,7 +307,7 @@ a {
 }
 
 /*生成的新节点*/
-#newNode{
+.newNode{
     width:25%;
     background-color: rgb(161, 34, 34);
     height:25%;
