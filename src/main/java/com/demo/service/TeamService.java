@@ -35,7 +35,8 @@ public class TeamService {
         return tm.DeleteTeam(id);
     }
 
-
     public List<Team> Get_Order(){return tm.GetOrder();}
+
+    public int Count_Idx(int id,int idx) {return tm.CountIdx(id,idx);}
 
 }

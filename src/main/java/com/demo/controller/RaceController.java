@@ -4,9 +4,8 @@ import com.demo.pojo.Team;
 import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -47,4 +46,16 @@ public class RaceController {
     public List<Team> GetOrder(){
         return ts.Get_Order();
     }
+
+    //比赛的时候记录到打到哪一个 按照id来修改
+    //此处的UserDetail未定
+    //此处的post直接调用按照id查找来替换(get_rank)
+    @GetMapping("/change_idx")
+    public String detail(Model model, Integer id,Integer idx) {
+        int role = ts.Count_Idx(id,idx);
+        model.addAttribute("team", role);
+        return "userDetail";
+    }
+
+
 }
